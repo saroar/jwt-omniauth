@@ -4,7 +4,8 @@ class User < ApplicationRecord
   def self.create_from_omniauth(params)
     attributes = {
       username: params['info']['name'],
-      email: params['info']['email']
+      email: params['info']['email'],
+      password: SecureRandom.hex(13)
     }
 
     create(attributes)
